@@ -1,0 +1,874 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="schoolmanagementsystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="DistrictID" />
+          </Key>
+          <Property Name="DistrictID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DistrictName" Type="varchar" MaxLength="50" />
+          <Property Name="DivisionID" Type="int" />
+        </EntityType>
+        <EntityType Name="Division">
+          <Key>
+            <PropertyRef Name="DivisionID" />
+          </Key>
+          <Property Name="DivisionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DivisionName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GuirdianInformation">
+          <Key>
+            <PropertyRef Name="GuirdianID" />
+          </Key>
+          <Property Name="GuirdianID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GuirdianName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="GuirdianGender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="GuirdianOccupation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GuirdianRelation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GuirdianEmail" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="GuirdianMobile" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImagesForAll">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermanentAddress">
+          <Key>
+            <PropertyRef Name="PermanentAddressID" />
+          </Key>
+          <Property Name="PermanentAddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PermanentVillage" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PermanentRoad" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PermanentDistrict" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PermanentUpazila" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PermanentPostOffice" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PermanentPostCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PresentAddress">
+          <Key>
+            <PropertyRef Name="PresentAddressID" />
+          </Key>
+          <Property Name="PresentAddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PresentVllage" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PresentRoad" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PresentDistrict" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PresentUpazila" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PresentPostOffice" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PresentPostCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SecurityQuestions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionDetails" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentInformation">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StudentFather'sName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StudentMother'sName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="StudentAge" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentStandar" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SudentRollNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentBirthReg" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="StudentEmail" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SudentSession" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="StudentGender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="StudentMobile" Type="varchar" MaxLength="15" />
+          <Property Name="StudentNationality" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShiftID" Type="int" Nullable="false" />
+          <Property Name="StudentAdmissionDate" Type="date" Nullable="false" />
+          <Property Name="StudentDurations" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentMonthlyFee">
+          <Key>
+            <PropertyRef Name="PayID" />
+          </Key>
+          <Property Name="PayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaidAmount" Type="money" Nullable="false" />
+          <Property Name="TotalAmount" Type="money" Nullable="false" />
+          <Property Name="AmountPayDate" Type="date" Nullable="false" />
+          <Property Name="StudentID" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentMonthlyFeesAmount">
+          <Key>
+            <PropertyRef Name="MonthlyFeesAmountID" />
+          </Key>
+          <Property Name="MonthlyFeesAmountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MonthlyFeeAmountFor" Type="money" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentMonthlyFeesData">
+          <Key>
+            <PropertyRef Name="MonthlyFeesDataID" />
+          </Key>
+          <Property Name="MonthlyFeesDataID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MonthlyPaymentFor" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentShiftInfo">
+          <Key>
+            <PropertyRef Name="ShiftID" />
+          </Key>
+          <Property Name="ShiftID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShiftName" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Upazila">
+          <Key>
+            <PropertyRef Name="UpazilaID" />
+          </Key>
+          <Property Name="UpazilaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UpazilaName" Type="varchar" MaxLength="50" />
+          <Property Name="DistrictID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserProfiles">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserFullName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserGmail" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserPhoneNo" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="UserDesignation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserBirthDate" Type="date" Nullable="false" />
+          <Property Name="UserRole" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserRegDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserQuestions">
+          <Key>
+            <PropertyRef Name="SecurityQuestionID" />
+          </Key>
+          <Property Name="SecurityQuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionOne" Type="varchar" MaxLength="500" />
+          <Property Name="AnswerOne" Type="varchar" MaxLength="100" />
+          <Property Name="QuestionTwo" Type="varchar" MaxLength="500" />
+          <Property Name="AnswerTwo" Type="varchar" MaxLength="100" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_GuirdianInformation_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="GuirdianInformation" Type="Self.GuirdianInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="GuirdianInformation">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImagesForAll_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="ImagesForAll" Type="Self.ImagesForAll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="ImagesForAll">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermanentAddress_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="PermanentAddress" Type="Self.PermanentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="PermanentAddress">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PresentAddress_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="PresentAddress" Type="Self.PresentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="PresentAddress">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentInformation_StudentShiftInfo">
+          <End Role="StudentShiftInfo" Type="Self.StudentShiftInfo" Multiplicity="1" />
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentShiftInfo">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="StudentInformation">
+              <PropertyRef Name="ShiftID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentMonthlyFee_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="0..1" />
+          <End Role="StudentMonthlyFee" Type="Self.StudentMonthlyFee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentMonthlyFee">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentMonthlyFeesAmount_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="StudentMonthlyFeesAmount" Type="Self.StudentMonthlyFeesAmount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentMonthlyFeesAmount">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentMonthlyFeesData_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="StudentMonthlyFeesData" Type="Self.StudentMonthlyFeesData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentMonthlyFeesData">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserQuestions_UserProfiles">
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="1" />
+          <End Role="UserQuestions" Type="Self.UserQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserQuestions">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="schoolmanagementsystemModelStoreContainer">
+          <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GuirdianInformation" EntityType="Self.GuirdianInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagesForAll" EntityType="Self.ImagesForAll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermanentAddress" EntityType="Self.PermanentAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PresentAddress" EntityType="Self.PresentAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SecurityQuestions" EntityType="Self.SecurityQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentInformation" EntityType="Self.StudentInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentMonthlyFee" EntityType="Self.StudentMonthlyFee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentMonthlyFeesAmount" EntityType="Self.StudentMonthlyFeesAmount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentMonthlyFeesData" EntityType="Self.StudentMonthlyFeesData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentShiftInfo" EntityType="Self.StudentShiftInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Upazila" EntityType="Self.Upazila" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserQuestions" EntityType="Self.UserQuestions" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_GuirdianInformation_StudentInformation" Association="Self.FK_GuirdianInformation_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformation" />
+            <End Role="GuirdianInformation" EntitySet="GuirdianInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImagesForAll_StudentInformation" Association="Self.FK_ImagesForAll_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformation" />
+            <End Role="ImagesForAll" EntitySet="ImagesForAll" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermanentAddress_StudentInformation" Association="Self.FK_PermanentAddress_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformation" />
+            <End Role="PermanentAddress" EntitySet="PermanentAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PresentAddress_StudentInformation" Association="Self.FK_PresentAddress_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformation" />
+            <End Role="PresentAddress" EntitySet="PresentAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentInformation_StudentShiftInfo" Association="Self.FK_StudentInformation_StudentShiftInfo">
+            <End Role="StudentShiftInfo" EntitySet="StudentShiftInfo" />
+            <End Role="StudentInformation" EntitySet="StudentInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentMonthlyFee_StudentInformation" Association="Self.FK_StudentMonthlyFee_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformation" />
+            <End Role="StudentMonthlyFee" EntitySet="StudentMonthlyFee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentMonthlyFeesAmount_StudentInformation" Association="Self.FK_StudentMonthlyFeesAmount_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformation" />
+            <End Role="StudentMonthlyFeesAmount" EntitySet="StudentMonthlyFeesAmount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentMonthlyFeesData_StudentInformation" Association="Self.FK_StudentMonthlyFeesData_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformation" />
+            <End Role="StudentMonthlyFeesData" EntitySet="StudentMonthlyFeesData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserQuestions_UserProfiles" Association="Self.FK_UserQuestions_UserProfiles">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="UserQuestions" EntitySet="UserQuestions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="schoolmanagementsystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="DistrictID" />
+          </Key>
+          <Property Name="DistrictID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DivisionID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Division">
+          <Key>
+            <PropertyRef Name="DivisionID" />
+          </Key>
+          <Property Name="DivisionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DivisionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GuirdianInformation">
+          <Key>
+            <PropertyRef Name="GuirdianID" />
+          </Key>
+          <Property Name="GuirdianID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GuirdianName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GuirdianGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GuirdianOccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GuirdianRelation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GuirdianEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GuirdianMobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StudentInformation" Relationship="Self.FK_GuirdianInformation_StudentInformation" FromRole="GuirdianInformation" ToRole="StudentInformation" />
+        </EntityType>
+        <EntityType Name="ImagesForAll">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StudentInformation" Relationship="Self.FK_ImagesForAll_StudentInformation" FromRole="ImagesForAll" ToRole="StudentInformation" />
+        </EntityType>
+        <EntityType Name="PermanentAddress">
+          <Key>
+            <PropertyRef Name="PermanentAddressID" />
+          </Key>
+          <Property Name="PermanentAddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PermanentVillage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PermanentRoad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PermanentDistrict" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PermanentUpazila" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PermanentPostOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PermanentPostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StudentInformation" Relationship="Self.FK_PermanentAddress_StudentInformation" FromRole="PermanentAddress" ToRole="StudentInformation" />
+        </EntityType>
+        <EntityType Name="PresentAddress">
+          <Key>
+            <PropertyRef Name="PresentAddressID" />
+          </Key>
+          <Property Name="PresentAddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PresentVllage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PresentRoad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PresentDistrict" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PresentUpazila" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PresentPostOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PresentPostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StudentInformation" Relationship="Self.FK_PresentAddress_StudentInformation" FromRole="PresentAddress" ToRole="StudentInformation" />
+        </EntityType>
+        <EntityType Name="SecurityQuestion">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="StudentInformation">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentFather_sName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentMother_sName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StudentAge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentStandar" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SudentRollNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentBirthReg" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SudentSession" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentMobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="StudentNationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ShiftID" Type="Int32" Nullable="false" />
+          <Property Name="StudentAdmissionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StudentDurations" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="GuirdianInformations" Relationship="Self.FK_GuirdianInformation_StudentInformation" FromRole="StudentInformation" ToRole="GuirdianInformation" />
+          <NavigationProperty Name="ImagesForAlls" Relationship="Self.FK_ImagesForAll_StudentInformation" FromRole="StudentInformation" ToRole="ImagesForAll" />
+          <NavigationProperty Name="PermanentAddresses" Relationship="Self.FK_PermanentAddress_StudentInformation" FromRole="StudentInformation" ToRole="PermanentAddress" />
+          <NavigationProperty Name="PresentAddresses" Relationship="Self.FK_PresentAddress_StudentInformation" FromRole="StudentInformation" ToRole="PresentAddress" />
+          <NavigationProperty Name="StudentShiftInfo" Relationship="Self.FK_StudentInformation_StudentShiftInfo" FromRole="StudentInformation" ToRole="StudentShiftInfo" />
+          <NavigationProperty Name="StudentMonthlyFees" Relationship="Self.FK_StudentMonthlyFee_StudentInformation" FromRole="StudentInformation" ToRole="StudentMonthlyFee" />
+          <NavigationProperty Name="StudentMonthlyFeesAmounts" Relationship="Self.FK_StudentMonthlyFeesAmount_StudentInformation" FromRole="StudentInformation" ToRole="StudentMonthlyFeesAmount" />
+          <NavigationProperty Name="StudentMonthlyFeesDatas" Relationship="Self.FK_StudentMonthlyFeesData_StudentInformation" FromRole="StudentInformation" ToRole="StudentMonthlyFeesData" />
+        </EntityType>
+        <EntityType Name="StudentMonthlyFee">
+          <Key>
+            <PropertyRef Name="PayID" />
+          </Key>
+          <Property Name="PayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaidAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="AmountPayDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StudentID" Type="Int32" />
+          <NavigationProperty Name="StudentInformation" Relationship="Self.FK_StudentMonthlyFee_StudentInformation" FromRole="StudentMonthlyFee" ToRole="StudentInformation" />
+        </EntityType>
+        <EntityType Name="StudentMonthlyFeesAmount">
+          <Key>
+            <PropertyRef Name="MonthlyFeesAmountID" />
+          </Key>
+          <Property Name="MonthlyFeesAmountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MonthlyFeeAmountFor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StudentInformation" Relationship="Self.FK_StudentMonthlyFeesAmount_StudentInformation" FromRole="StudentMonthlyFeesAmount" ToRole="StudentInformation" />
+        </EntityType>
+        <EntityType Name="StudentMonthlyFeesData">
+          <Key>
+            <PropertyRef Name="MonthlyFeesDataID" />
+          </Key>
+          <Property Name="MonthlyFeesDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MonthlyPaymentFor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StudentInformation" Relationship="Self.FK_StudentMonthlyFeesData_StudentInformation" FromRole="StudentMonthlyFeesData" ToRole="StudentInformation" />
+        </EntityType>
+        <EntityType Name="StudentShiftInfo">
+          <Key>
+            <PropertyRef Name="ShiftID" />
+          </Key>
+          <Property Name="ShiftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShiftName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="StudentInformations" Relationship="Self.FK_StudentInformation_StudentShiftInfo" FromRole="StudentShiftInfo" ToRole="StudentInformation" />
+        </EntityType>
+        <EntityType Name="Upazila">
+          <Key>
+            <PropertyRef Name="UpazilaID" />
+          </Key>
+          <Property Name="UpazilaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UpazilaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserGmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserBirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UserRole" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserRegDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="UserQuestions" Relationship="Self.FK_UserQuestions_UserProfiles" FromRole="UserProfiles" ToRole="UserQuestions" />
+        </EntityType>
+        <EntityType Name="UserQuestion">
+          <Key>
+            <PropertyRef Name="SecurityQuestionID" />
+          </Key>
+          <Property Name="SecurityQuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionOne" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AnswerOne" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="QuestionTwo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AnswerTwo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserProfile" Relationship="Self.FK_UserQuestions_UserProfiles" FromRole="UserQuestions" ToRole="UserProfiles" />
+        </EntityType>
+        <Association Name="FK_GuirdianInformation_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="GuirdianInformation" Type="Self.GuirdianInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="GuirdianInformation">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImagesForAll_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="ImagesForAll" Type="Self.ImagesForAll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="ImagesForAll">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermanentAddress_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="PermanentAddress" Type="Self.PermanentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="PermanentAddress">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PresentAddress_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="PresentAddress" Type="Self.PresentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="PresentAddress">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentInformation_StudentShiftInfo">
+          <End Role="StudentShiftInfo" Type="Self.StudentShiftInfo" Multiplicity="1" />
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentShiftInfo">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="StudentInformation">
+              <PropertyRef Name="ShiftID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentMonthlyFee_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="0..1" />
+          <End Role="StudentMonthlyFee" Type="Self.StudentMonthlyFee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentMonthlyFee">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentMonthlyFeesAmount_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="StudentMonthlyFeesAmount" Type="Self.StudentMonthlyFeesAmount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentMonthlyFeesAmount">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentMonthlyFeesData_StudentInformation">
+          <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+          <End Role="StudentMonthlyFeesData" Type="Self.StudentMonthlyFeesData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentInformation">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentMonthlyFeesData">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserQuestions_UserProfiles">
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="UserQuestions" Type="Self.UserQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserQuestions">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="schoolmanagementsystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Districts" EntityType="Self.District" />
+          <EntitySet Name="Divisions" EntityType="Self.Division" />
+          <EntitySet Name="GuirdianInformations" EntityType="Self.GuirdianInformation" />
+          <EntitySet Name="ImagesForAlls" EntityType="Self.ImagesForAll" />
+          <EntitySet Name="PermanentAddresses" EntityType="Self.PermanentAddress" />
+          <EntitySet Name="PresentAddresses" EntityType="Self.PresentAddress" />
+          <EntitySet Name="SecurityQuestions" EntityType="Self.SecurityQuestion" />
+          <EntitySet Name="StudentInformations" EntityType="Self.StudentInformation" />
+          <EntitySet Name="StudentMonthlyFees" EntityType="Self.StudentMonthlyFee" />
+          <EntitySet Name="StudentMonthlyFeesAmounts" EntityType="Self.StudentMonthlyFeesAmount" />
+          <EntitySet Name="StudentMonthlyFeesDatas" EntityType="Self.StudentMonthlyFeesData" />
+          <EntitySet Name="StudentShiftInfoes" EntityType="Self.StudentShiftInfo" />
+          <EntitySet Name="Upazilas" EntityType="Self.Upazila" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+          <EntitySet Name="UserQuestions" EntityType="Self.UserQuestion" />
+          <AssociationSet Name="FK_GuirdianInformation_StudentInformation" Association="Self.FK_GuirdianInformation_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformations" />
+            <End Role="GuirdianInformation" EntitySet="GuirdianInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImagesForAll_StudentInformation" Association="Self.FK_ImagesForAll_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformations" />
+            <End Role="ImagesForAll" EntitySet="ImagesForAlls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermanentAddress_StudentInformation" Association="Self.FK_PermanentAddress_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformations" />
+            <End Role="PermanentAddress" EntitySet="PermanentAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PresentAddress_StudentInformation" Association="Self.FK_PresentAddress_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformations" />
+            <End Role="PresentAddress" EntitySet="PresentAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentInformation_StudentShiftInfo" Association="Self.FK_StudentInformation_StudentShiftInfo">
+            <End Role="StudentShiftInfo" EntitySet="StudentShiftInfoes" />
+            <End Role="StudentInformation" EntitySet="StudentInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentMonthlyFee_StudentInformation" Association="Self.FK_StudentMonthlyFee_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformations" />
+            <End Role="StudentMonthlyFee" EntitySet="StudentMonthlyFees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentMonthlyFeesAmount_StudentInformation" Association="Self.FK_StudentMonthlyFeesAmount_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformations" />
+            <End Role="StudentMonthlyFeesAmount" EntitySet="StudentMonthlyFeesAmounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentMonthlyFeesData_StudentInformation" Association="Self.FK_StudentMonthlyFeesData_StudentInformation">
+            <End Role="StudentInformation" EntitySet="StudentInformations" />
+            <End Role="StudentMonthlyFeesData" EntitySet="StudentMonthlyFeesDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserQuestions_UserProfiles" Association="Self.FK_UserQuestions_UserProfiles">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="UserQuestions" EntitySet="UserQuestions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="schoolmanagementsystemModelStoreContainer" CdmEntityContainer="schoolmanagementsystemEntities">
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Divisions">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.Division">
+              <MappingFragment StoreEntitySet="Division">
+                <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+                <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GuirdianInformations">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.GuirdianInformation">
+              <MappingFragment StoreEntitySet="GuirdianInformation">
+                <ScalarProperty Name="GuirdianID" ColumnName="GuirdianID" />
+                <ScalarProperty Name="GuirdianName" ColumnName="GuirdianName" />
+                <ScalarProperty Name="GuirdianGender" ColumnName="GuirdianGender" />
+                <ScalarProperty Name="GuirdianOccupation" ColumnName="GuirdianOccupation" />
+                <ScalarProperty Name="GuirdianRelation" ColumnName="GuirdianRelation" />
+                <ScalarProperty Name="GuirdianEmail" ColumnName="GuirdianEmail" />
+                <ScalarProperty Name="GuirdianMobile" ColumnName="GuirdianMobile" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagesForAlls">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.ImagesForAll">
+              <MappingFragment StoreEntitySet="ImagesForAll">
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermanentAddresses">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.PermanentAddress">
+              <MappingFragment StoreEntitySet="PermanentAddress">
+                <ScalarProperty Name="PermanentAddressID" ColumnName="PermanentAddressID" />
+                <ScalarProperty Name="PermanentVillage" ColumnName="PermanentVillage" />
+                <ScalarProperty Name="PermanentRoad" ColumnName="PermanentRoad" />
+                <ScalarProperty Name="PermanentDistrict" ColumnName="PermanentDistrict" />
+                <ScalarProperty Name="PermanentUpazila" ColumnName="PermanentUpazila" />
+                <ScalarProperty Name="PermanentPostOffice" ColumnName="PermanentPostOffice" />
+                <ScalarProperty Name="PermanentPostCode" ColumnName="PermanentPostCode" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PresentAddresses">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.PresentAddress">
+              <MappingFragment StoreEntitySet="PresentAddress">
+                <ScalarProperty Name="PresentAddressID" ColumnName="PresentAddressID" />
+                <ScalarProperty Name="PresentVllage" ColumnName="PresentVllage" />
+                <ScalarProperty Name="PresentRoad" ColumnName="PresentRoad" />
+                <ScalarProperty Name="PresentDistrict" ColumnName="PresentDistrict" />
+                <ScalarProperty Name="PresentUpazila" ColumnName="PresentUpazila" />
+                <ScalarProperty Name="PresentPostOffice" ColumnName="PresentPostOffice" />
+                <ScalarProperty Name="PresentPostCode" ColumnName="PresentPostCode" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecurityQuestions">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.SecurityQuestion">
+              <MappingFragment StoreEntitySet="SecurityQuestions">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QuestionDetails" ColumnName="QuestionDetails" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentInformations">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.StudentInformation">
+              <MappingFragment StoreEntitySet="StudentInformation">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentFather_sName" ColumnName="StudentFather'sName" />
+                <ScalarProperty Name="StudentMother_sName" ColumnName="StudentMother'sName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="StudentAge" ColumnName="StudentAge" />
+                <ScalarProperty Name="StudentStandar" ColumnName="StudentStandar" />
+                <ScalarProperty Name="SudentRollNo" ColumnName="SudentRollNo" />
+                <ScalarProperty Name="StudentBirthReg" ColumnName="StudentBirthReg" />
+                <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+                <ScalarProperty Name="SudentSession" ColumnName="SudentSession" />
+                <ScalarProperty Name="StudentGender" ColumnName="StudentGender" />
+                <ScalarProperty Name="StudentMobile" ColumnName="StudentMobile" />
+                <ScalarProperty Name="StudentNationality" ColumnName="StudentNationality" />
+                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+                <ScalarProperty Name="StudentAdmissionDate" ColumnName="StudentAdmissionDate" />
+                <ScalarProperty Name="StudentDurations" ColumnName="StudentDurations" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentMonthlyFees">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.StudentMonthlyFee">
+              <MappingFragment StoreEntitySet="StudentMonthlyFee">
+                <ScalarProperty Name="PayID" ColumnName="PayID" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="AmountPayDate" ColumnName="AmountPayDate" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentMonthlyFeesAmounts">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.StudentMonthlyFeesAmount">
+              <MappingFragment StoreEntitySet="StudentMonthlyFeesAmount">
+                <ScalarProperty Name="MonthlyFeesAmountID" ColumnName="MonthlyFeesAmountID" />
+                <ScalarProperty Name="MonthlyFeeAmountFor" ColumnName="MonthlyFeeAmountFor" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentMonthlyFeesDatas">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.StudentMonthlyFeesData">
+              <MappingFragment StoreEntitySet="StudentMonthlyFeesData">
+                <ScalarProperty Name="MonthlyFeesDataID" ColumnName="MonthlyFeesDataID" />
+                <ScalarProperty Name="MonthlyPaymentFor" ColumnName="MonthlyPaymentFor" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentShiftInfoes">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.StudentShiftInfo">
+              <MappingFragment StoreEntitySet="StudentShiftInfo">
+                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+                <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Upazilas">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.Upazila">
+              <MappingFragment StoreEntitySet="Upazila">
+                <ScalarProperty Name="UpazilaID" ColumnName="UpazilaID" />
+                <ScalarProperty Name="UpazilaName" ColumnName="UpazilaName" />
+                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfiles">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserGmail" ColumnName="UserGmail" />
+                <ScalarProperty Name="UserPhoneNo" ColumnName="UserPhoneNo" />
+                <ScalarProperty Name="UserDesignation" ColumnName="UserDesignation" />
+                <ScalarProperty Name="UserBirthDate" ColumnName="UserBirthDate" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="UserRegDate" ColumnName="UserRegDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserQuestions">
+            <EntityTypeMapping TypeName="schoolmanagementsystemModel.UserQuestion">
+              <MappingFragment StoreEntitySet="UserQuestions">
+                <ScalarProperty Name="SecurityQuestionID" ColumnName="SecurityQuestionID" />
+                <ScalarProperty Name="QuestionOne" ColumnName="QuestionOne" />
+                <ScalarProperty Name="AnswerOne" ColumnName="AnswerOne" />
+                <ScalarProperty Name="QuestionTwo" ColumnName="QuestionTwo" />
+                <ScalarProperty Name="AnswerTwo" ColumnName="AnswerTwo" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

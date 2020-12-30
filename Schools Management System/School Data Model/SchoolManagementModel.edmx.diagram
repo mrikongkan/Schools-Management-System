@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="52e43abfc8364e7dbea1925ebbef18f9" Name="Diagram1">
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.District" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.Division" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.GuirdianInformation" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.ImagesForAll" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.PermanentAddress" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.PresentAddress" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.SecurityQuestion" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.StudentInformation" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.StudentMonthlyFee" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.StudentMonthlyFeesAmount" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.StudentMonthlyFeesData" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.StudentShiftInfo" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.Upazila" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.UserProfile" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="schoolmanagementsystemModel.UserQuestion" Width="1.5" PointX="10" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="schoolmanagementsystemModel.FK_GuirdianInformation_StudentInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="schoolmanagementsystemModel.FK_ImagesForAll_StudentInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="schoolmanagementsystemModel.FK_PermanentAddress_StudentInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="schoolmanagementsystemModel.FK_PresentAddress_StudentInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="schoolmanagementsystemModel.FK_StudentInformation_StudentShiftInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="schoolmanagementsystemModel.FK_StudentMonthlyFee_StudentInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="schoolmanagementsystemModel.FK_StudentMonthlyFeesAmount_StudentInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="schoolmanagementsystemModel.FK_StudentMonthlyFeesData_StudentInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="schoolmanagementsystemModel.FK_UserQuestions_UserProfiles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
